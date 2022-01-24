@@ -19,7 +19,21 @@
   <body>
     <!--Main Page Content-->
     <main>
-        
+        <form action="" class="form">
+          <div class="form_container">
+            <label for="name">Name:</label>
+            <input id="name" type="text" placeholder="Enter Your Name" pattern="^[a-zA-Z\s]*$" required/>
+          </div>
+          <div class="form-container">
+            <label for="email">Email:</label>
+            <input id="email" type="email" placeholder="Enter Your Email" required/>
+          </div>
+          <div class="form_container">
+              <label for="card_number">Card:</label>
+              <input id="card_number" type="text" placeholder="Enter a Proxy Credit Card Number" pattern="^[0-9]*$" required/>
+          </div>
+          <input class="submit-btn" type="submit" value="Submit"/>
+        </form>
     </main>
   </body>
 </html>
