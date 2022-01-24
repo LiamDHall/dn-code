@@ -1,0 +1,63 @@
+/*---------------------------Brand Colours--*/
+:root {
+    --dn-green: rgb(137,200,46);
+    --dn-grey: rgb(60,60,59);
+    --ph-grey: rgb(207, 207, 207);
+    --dn-pink: rgb(231,0,100);
+}
+
+/*---------------------------Basic Styling--*/
+body {
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--dn-grey);
+}
+
+.center-text {
+    text-align: center;
+}
+
+::placeholder { 
+    color: var(--ph-grey);
+    opacity: 1; 
+}
+
+:-ms-input-placeholder { 
+color: var(--ph-grey);
+}
+
+::-ms-input-placeholder {
+color: var(--ph-grey);
+}
+  
+/*---------------------------Form--*/
+.dn-form {
+    display: inline-block;
+    padding: 35px 25px 0px 25px;
+    background-color: var(--dn-green);
+    border: 5px solid var(--dn-grey);
+    border-radius: 30px;
+}
+
+.dn-form td {
+    padding-bottom: 5px;
+}
+
+.dn-form label {
+    padding-right: 10px;
+    font-weight: 500;
+}
+
+.dn-form_input {
+    border: none;
+    padding: 5px;
+    width: 210px;
+}
+
+.submit-btn {
+    background-color: var(--dn-pink);
+    margin: 0 auto;
+    border: 1px solid var(--dn-grey);
+    border-radius: 5px;
+    padding: 3px 15px;
+    width: auto;
+}
