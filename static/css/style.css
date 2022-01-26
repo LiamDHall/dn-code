@@ -14,10 +14,10 @@
 body {
     font-family: Calibri, 'Trebuchet MS', sans-serif;
     color: var(--grey);
-}
-
-.center-text {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ::placeholder { 
