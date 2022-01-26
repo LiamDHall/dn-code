@@ -1,15 +1,19 @@
 /*---------------------------Brand Colours--*/
 :root {
-    --dn-green: rgb(137,200,46);
-    --dn-grey: rgb(60,60,59);
+    --green: rgb(137,200,46);
+    --grey: rgb(60,60,59);
+    --pink: rgb(231,0,100);
+
+    --dn-green: rgb(138, 189, 36);
+    --dn-pink: rgb(233, 22, 140);
+
     --ph-grey: rgb(207, 207, 207);
-    --dn-pink: rgb(231,0,100);
 }
 
 /*---------------------------Basic Styling--*/
 body {
     font-family: Calibri, 'Trebuchet MS', sans-serif;
-    color: var(--dn-grey);
+    color: var(--grey);
 }
 
 .center-text {
@@ -33,8 +37,8 @@ color: var(--ph-grey);
 .dn-form {
     display: inline-block;
     padding: 35px 25px 0px 25px;
-    background-color: var(--dn-green);
-    border: 5px solid var(--dn-grey);
+    background-color: var(--green);
+    border: 5px solid var(--grey);
     border-radius: 30px;
 }
 
@@ -54,9 +58,9 @@ color: var(--ph-grey);
 }
 
 .submit-btn {
-    background-color: var(--dn-pink);
+    background-color: var(--pink);
     margin: 0 auto;
-    border: 1px solid var(--dn-grey);
+    border: 1px solid var(--grey);
     border-radius: 5px;
     padding: 3px 15px;
     width: auto;
