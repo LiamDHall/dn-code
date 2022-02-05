@@ -43,10 +43,6 @@ color: var(--ph-grey);
     border-radius: 30px;
 }
 
-.dn-form td {
-    padding-bottom: 5px;
-}
-
 .dn-form label {
     padding-right: 10px;
     font-weight: 500;
@@ -56,6 +52,12 @@ color: var(--ph-grey);
     border: none;
     padding: 5px;
     width: 210px;
+    background-color: white;
+}
+
+.feedback {
+    text-align: left;
+    color: var(--dn-pink)
 }
 
 .submit-btn {
@@ -65,4 +67,5 @@ color: var(--ph-grey);
     border-radius: 5px;
     padding: 3px 15px;
     width: auto;
+    margin-bottom: 5px;
 }
