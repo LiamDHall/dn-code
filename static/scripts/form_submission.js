@@ -8,7 +8,7 @@ const cardFeedback = document.getElementById('card_feedback');
 const dnGreen = "#8abd24";
 const dnPink = "#e9168c";
 
-$('document').ready(function(){
+document.addEventListener('DOMContentLoaded', function () {
     nameInput.addEventListener('keyup', validateName);
     email.addEventListener('keyup', validateEmail);
     card.addEventListener('keyup', validateCard);
@@ -32,17 +32,17 @@ const validateName = () => {
         if (formatValidation == false) {
             nameInput.style.backgroundColor = `${dnPink}`;
             nameFeedback.innerHTML = "Invalid Character.<br>Only letters allowed";
-            return formatValidation;
+            return false;
         }
 
         nameInput.style.backgroundColor = `${dnGreen}`
         nameFeedback.innerHTML = "";
-        return formatValidation;
+        return true;
     }
 
     nameInput.style.backgroundColor = `${dnPink}`;
     nameFeedback.innerHTML = "This feild can't be blank.";
-    return formatValidation;
+    return false;
 }
 
 // Email Validation
@@ -55,17 +55,17 @@ const validateEmail = () => {
         if (formatValidation == false) {
             email.style.backgroundColor = `${dnPink}`;
             emailFeedback.innerHTML = "Invalid Format or Character.<br>Only letter, numbers and the<br>following symbols _-. are allowed.";
-            return formatValidation;
+            return false;
         }
 
         email.style.backgroundColor = `${dnGreen}`;
         emailFeedback.innerHTML = "";
-        return formatValidation;
+        return true;
     }
 
     email.style.backgroundColor = `${dnPink}`;
     emailFeedback.innerHTML = "This feild can't be blank.";
-    return formatValidation;
+    return false;
 }
 
 // Card Validation
@@ -76,27 +76,26 @@ const validateCard = () => {
     if (testValue.length == 0) {
         card.style.backgroundColor = `${dnPink}`;
         cardFeedback.innerHTML = "This feild can't be blank.";
-        return formatValidation;
+        return false;
     }
 
-    var formatValidation = /^(\d+-?)+\d+$/.test(testValue);
-    
     // Check format
+    var formatValidation = /^[0-9]{12,19}$/.test(testValue);
+    var numbersOnly = /^[0-9]*$/.test(testValue)
+    
     if (formatValidation == false) {
 
-        numberOnly = /^[0-9\-]+$/.test(testValue);
-
-        if (numberOnly == false) {
+        if (numbersOnly == false) {
             card.style.backgroundColor = `${dnPink}`;
-            cardFeedback.innerHTML = "Invalid Character.<br>Only numbers and dashes are<br>allowed.";
-            return formatValidation;
+            cardFeedback.innerHTML = "Invalid Character.<br>Only numbers allowed.";
+            return false;
         }
 
         card.style.backgroundColor = `${dnPink}`;
-        cardFeedback.innerHTML = "Invalid Format";
-        return formatValidation;
+        cardFeedback.innerHTML = "Invalid Card Number.";
+        return false;
     }
-    
+
     // Format card number for LUHN algorithm
     var nCheck = 0, nDigit = 0, bEven = false;
     testValue = testValue.replace(/\D/g, "");
@@ -115,15 +114,14 @@ const validateCard = () => {
 
     var numberValidation = (nCheck % 10) == 0;
 
-    // Check card number via LUHN algorithm
+    // Check card number is valid via LUHN algorithm
     if (numberValidation == true) {
         card.style.backgroundColor = `${dnGreen}`;
         cardFeedback.innerHTML = "";
-        return numberValidation;
+        return true;
     }
 
     card.style.backgroundColor = `${dnPink}`;
     cardFeedback.innerHTML = "Invalid Card Number.";
     return false;
-
 }
