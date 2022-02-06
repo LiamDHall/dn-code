@@ -11,6 +11,10 @@
 }
 
 /*---------------------------Basic Styling--*/
+html {
+    height: 100%;
+    margin: 0;
+}
 body {
     font-family: Calibri, 'Trebuchet MS', sans-serif;
     color: var(--grey);
@@ -18,7 +22,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin: 0;
+    height: 100%;
 }
 
 ::placeholder { 
