@@ -8,8 +8,8 @@
         <!--Local CSS-->
         <link rel="stylesheet" href="/static/css/style.css">
         
-        <!--JQuery-->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <!--Email JS-->
+        <script src="https://smtpjs.com/v3/smtp.js"></script> 
         
         <!--JS-->
         <script defer src="/static/scripts/form_submission.js"></script>
@@ -21,6 +21,9 @@
     <main>
         <form id="form" class="dn-form" onsubmit="event.preventDefault(); submitForm();" novalidate>
           <table>
+            <tr>
+              <td id="submission_feedback" class="submission-feedback" colspan="2"><td>
+            </tr>
             <tr>
               <td><label for="name">Name:</label></td>
               <td><input id="name" class="dn-form_input" type="text" placeholder="Enter Your Name" onfocusout="validateName()" pattern="^[a-zA-Z\s]*$" maxlength="50" required/></td>

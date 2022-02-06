@@ -1,24 +1,54 @@
-const nameInput = document.getElementById('name');
-const email = document.getElementById('email');
-const card = document.getElementById('card_number');
-const nameFeedback = document.getElementById('name_feedback');
-const emailFeedback = document.getElementById('email_feedback');
-const cardFeedback = document.getElementById('card_feedback');
+const nameInput = document.getElementById("name");
+const email = document.getElementById("email");
+const card = document.getElementById("card_number");
+const nameFeedback = document.getElementById("name_feedback");
+const emailFeedback = document.getElementById("email_feedback");
+const cardFeedback = document.getElementById("card_feedback");
+const submissionFeedback = document.getElementById("submission_feedback");
 
 const dnGreen = "#8abd24";
 const dnPink = "#e9168c";
 
-document.addEventListener('DOMContentLoaded', function () {
-    nameInput.addEventListener('keyup', validateName);
-    email.addEventListener('keyup', validateEmail);
-    card.addEventListener('keyup', validateCard);
+document.addEventListener("DOMContentLoaded", function () {
+    nameInput.addEventListener("keyup", validateName);
+    email.addEventListener("keyup", validateEmail);
+    card.addEventListener("keyup", validateCard);
 });
 
 submitForm = () => {
-    if (validateName() == false || validateEmail() == false || validateCard() == false)
-        return false
+    if (validateName() == false || validateEmail() == false || validateCard() == false) {
+        submissionFeedback.style.color = `${dnPink}`;
+        submissionFeedback.innerHTML = "Error: Please see below";
+        return false;
+    }
 
-    console.log("form submitted")
+    var ebody = `A person has submitted your form, their information is below:<br><br>
+    Name: ${nameInput.value.trim()}<br>
+    Email: ${email.value.trim()}<br>
+    Card Number: ${card.value.trim()}<br>
+    `;
+    
+    Email.send({ 
+        Host: "smtp.gmail.com", 
+        Username: "hallemailsenderbot@gmail.com", 
+        Password: EMAIL_KEY, 
+        To: "hall.zyx@gmail.com", 
+        From: "no-reply.LiamHallCodeChallageForm@gmail.com", 
+        Subject: "DN Validated Form Data", 
+        Body: ebody
+    })
+
+    nameInput.value = "";
+    email.value = "";
+    card.value = "";
+    submissionFeedback.innerHTML = "Thank you for your submission";
+
+    nameInput.style.backgroundColor = `#FFFFFF`;
+    email.style.backgroundColor = `#FFFFFF`;
+    card.style.backgroundColor = `#FFFFFF`;
+
+    submissionFeedback.style.color = `#FFFFFF`;
+
     return true
 }
 
